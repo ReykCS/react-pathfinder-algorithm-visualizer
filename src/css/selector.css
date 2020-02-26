@@ -1,0 +1,18 @@
+.selector-holder {
+    display: flex;
+}
+
+.selector {
+    background: #e9e9e9;
+    margin: 10px;
+    border-radius: 10px;
+    border: 1px solid #a9a9a9;
+}
+
+.selector p {
+    margin: 10px;
+}
+
+.selected {
+    background: #a9a9a9;
+}

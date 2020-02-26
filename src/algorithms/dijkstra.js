@@ -1,4 +1,4 @@
-import assets from './assets.js';
+import assets from './../assets.js';
 
 export default function dijkstra(start, maxX, maxY, nodes)  {
     let parent = new Array(maxX * maxY).fill(0);

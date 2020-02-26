@@ -1,8 +1,10 @@
 import React from 'react';
 import Node from './Node.js';
-import "./finder.css";
+import "./css/finder.css";
 import assets from './assets.js';
-import dijkstra from './dijkstra.js';
+import Selection from './SelectAlgorithm.js';
+import AlgorithmOptions from './AlgorithmOptions.js';
+import algorithms from './algorithms.js';
 
 class Pathfinder extends React.Component {
     constructor(props)  {
@@ -12,7 +14,8 @@ class Pathfinder extends React.Component {
             maxX: 10,
             maxY: 10,
             mouseDown: false,
-            maxWeight: 10
+            maxWeight: 10,
+            selected: 0
         }
         this.visualizePath = this.visualizePath.bind(this);
         this.handleSetNodeWall = this.handleSetNodeWall.bind(this);
@@ -22,7 +25,7 @@ class Pathfinder extends React.Component {
         this.handleSetNodeWallDragged = this.handleSetNodeWallDragged.bind(this);
         this.clearBoard = this.clearBoard.bind(this);
         this.resetBoard = this.resetBoard.bind(this);
-        this.createWeightedBoard = this.createWeightedBoard.bind(this);
+        this.handleSelectAlgorithm = this.handleSelectAlgorithm.bind(this);
     }
     visualizePath(parent) {
         let {end, start, maxX} = this.state;
@@ -53,15 +56,15 @@ class Pathfinder extends React.Component {
                 this.setState({
                     nodes: nodes
                 });
-                return cost;
             }, 50 * i);
         }
         cost += assets.getWeight(startNode, this.state.nodes[end.y][end.x]);
         console.log("COST: " + cost);
     }
     visualizeDijkstra()  {
-        let {start, maxX, nodes, maxY} = this.state;
-        let result = dijkstra(start, maxX, maxY, nodes);
+        let {start, maxX, nodes, maxY, selected} = this.state;
+        //let result = dijkstra(start, maxX, maxY, nodes);
+        let result = algorithms[selected].method(start, maxX, maxY, nodes);
         for (let i = 0; i < result.order.length; i++)    {
             setTimeout(() => {
                 let newNodes = this.state.nodes.slice();
@@ -130,25 +133,31 @@ class Pathfinder extends React.Component {
             end: end
         });
     }
-    createWeightedBoard()   {
-        this.resetBoard(this.state.maxWeight);
+    handleSelectAlgorithm(index)    {
+        this.resetBoard(0);
+        this.setState({
+            selected: index
+        });
     }
     render()    {
         let {nodes} = this.state;
         return (
             <React.Fragment>
-                <div className="options-holder">
-                    <button onClick={this.clearBoard}>Clear</button>
-                    <button onClick={() => this.resetBoard(0)}>Create New</button>
-                    <button onClick={this.createWeightedBoard}>Create Weighted</button>
-                    <button onClick={this.visualizeDijkstra}>Start Dijkstra</button>
-                </div>
+                <Selection onClick={this.handleSelectAlgorithm} />
+                <AlgorithmOptions 
+                            onClear={this.clearBoard}
+                            onCreateNew={() => this.resetBoard(0)}
+                            onCreateWeighted={() => this.resetBoard(this.state.maxWeight)}
+                            onStart={this.visualizeDijkstra} />
                 <div onMouseLeave={() => this.handleMousePressed(false)} onMouseDown={() => this.handleMousePressed(true)} onMouseUp={() => this.handleMousePressed(false)} className="grid-holder">
                     {nodes.map((row, indY) => {
                         return (
                             <div className="row" key={indY}>
                                 {row.map((val, indX) => {
-                                    return <Node handleClick={this.handleSetNodeWallClicked} handleDrag={this.handleSetNodeWallDragged} value={val} key={indX}></Node>
+                                    return <Node 
+                                        handleClick={this.handleSetNodeWallClicked} handleDrag={this.handleSetNodeWallDragged} 
+                                        value={val} 
+                                        key={indX}></Node>
                                 })}
                             </div>
                         )
