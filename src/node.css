@@ -1,0 +1,26 @@
+.node {
+   height: 40px;
+   flex: 1;
+   border: solid 1px #ccc;
+   transition: all 0.3s;
+}
+
+.start  {
+    background: #66AA3F;
+}
+
+.end {
+    background: #510A19;
+}
+
+.visited  {
+    background: #347691;
+}
+
+.path {
+    background: #BDE236;
+}
+
+.wall {
+    background: #444;
+}

@@ -1,0 +1,14 @@
+.row {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    width: 100%;
+}
+
+.grid-holder {
+    width: 60%;
+}
+
+.options.holder {
+    display: flex;
+}
