@@ -1,5 +1,6 @@
 import dijkstra from './algorithms/dijkstra.js';
-import aStar from './algorithms/aStar.js'
+import aStar from './algorithms/aStar.js';
+import dfs from './algorithms/depthFirst.js';
 
 const algorithms = [
     {
@@ -11,7 +12,8 @@ const algorithms = [
         method: aStar
     },
     {
-        name: "Depth-First-Search"
+        name: "Depth-First-Search",
+        method: dfs
     }
 ];
 
