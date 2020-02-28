@@ -2,10 +2,6 @@ import React from 'react';
 import "./css/options.css";
 
 class AlgorithmOptions extends React.Component {
-    constructor(props)  {
-        super(props);
-    }
-
     render()    {
         return (
             <div className="options-holder">

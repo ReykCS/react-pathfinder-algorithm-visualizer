@@ -6,11 +6,8 @@ function dfs(start, maxX, maxY, nodes)  {
     let visited = new Array(maxX * maxY).fill(false);
     let startIndex = assets.getIndex(start.x, start.y, maxX);
     visited[startIndex] = true;
-
-    console.log(start);
     let dftAlg = function(v, i) {
         M.push(i);
-        console.log(v);
         if ( nodes[v.y][v.x].isEnd ) return;
         let neighbors = assets.getNeighbors(v.x, v.y, maxX, maxY, nodes);
 
