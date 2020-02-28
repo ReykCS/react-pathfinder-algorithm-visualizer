@@ -9,7 +9,6 @@ export default function dijkstra(start, maxX, maxY, nodes)  {
     let order = [];
     while ( m.length > 0 )  {
         assets.sortNodesByDistance(m);
-        console.log(m);
         let node = m.shift();
         let neighbors = assets.getNeighbors(node.x, node.y, maxX, maxY, nodes);
         if ( neighbors.length <= 0 ) return {parent: null, order};
