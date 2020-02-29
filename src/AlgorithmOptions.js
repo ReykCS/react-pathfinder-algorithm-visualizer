@@ -5,22 +5,23 @@ class AlgorithmOptions extends React.Component {
     render()    {
         return (
             <div className="options-holder">
-                <button 
+                <div className="option first"
                     onClick={this.props.onClear}>
                         Clear
-                </button>
-                <button 
+                </div>
+                <div className="option"
                     onClick={this.props.onCreateNew}>
                         Create New
-                </button>
-                <button     
+                </div>
+                <div className="option"    
                     onClick={this.props.onCreateWeighted}>
-                        Create Weighted
-                </button>
-                <button 
+                        Weighted
+                </div>
+                <div className="option last"
                     onClick={this.props.onStart}>
                         Start
-                </button>
+                    
+                </div>
             </div>
         )
     }

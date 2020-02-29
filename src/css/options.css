@@ -1,4 +1,38 @@
+.options-holder {
+    margin: 10px;
+    background: linear-gradient(90deg, rgba(65,65,65,1) 0%, rgba(226,241,248,1) 0%, rgba(176,190,197,1) 100%);
+    border: 1px solid #363636;
+    border-radius: 5px;
+    -webkit-box-shadow: 10px 10px 9px -9px rgba(54,54,54,1);
+    -moz-box-shadow: 10px 10px 9px -9px rgba(54,54,54,1);
+    width: 15%;
+    box-shadow: 10px 10px 9px -9px rgba(54,54,54,1);
+    display: grid;
+}
 
-.options.holder {
+.option {
+    background: linear-gradient(90deg, rgba(65,65,65,1) 0%, rgba(226,241,248,1) 0%, rgba(176,190,197,1) 100%);
+    border-bottom: 1px solid #363636;
+    /* margin: 0px; */
+    padding: 10px;
     display: flex;
+    justify-content: center;
+    align-items: center;
+
+    -webkit-box-shadow: inset -4px -6px 11px -8px rgba(54,54,54,1);
+    -moz-box-shadow: inset -4px -6px 11px -8px rgba(54,54,54,1);
+    box-shadow: inset -5px -5px 10px -8px rgba(54,54,54,1);
+}
+
+.option:hover {
+    background: linear-gradient(90deg, rgba(65,65,65,1) 0%, rgba(136,255,255,1) 0%, rgba(77,208,225,1) 100%);
+}
+
+.last {
+    border-bottom: 0px solid #000;
+    border-radius: 0 0 5px 5px;
+}
+
+.option p {
+    color: #363636;
 }

@@ -39,7 +39,7 @@ class Type extends React.Component {
     render()    {
         return(
             <div 
-                onClick={() => this.props.handleClick(this.props.id)} className={"selector" + (this.props.selected ? " selected" : "")}>
+                onClick={() => this.props.handleClick(this.props.id)} className={"selector" + (this.props.selected ? " selected " : "") + (this.props.id == 0 ? " first " : "")}>
                 <p>{this.props.name}</p>
             </div>
         )

@@ -37,7 +37,9 @@ const assets = {
                     isWeighted: randomWeight ? true : false,
                     distance: 100000000,
                     visited: false,
-                    isWall: false
+                    isWall: false,
+                    mostRight: col === (maxX - 1) ? false : true,
+                    lastRow: row === (maxY - 1) ? false : true
                 });
             }
         }

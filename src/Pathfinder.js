@@ -142,7 +142,7 @@ class Pathfinder extends React.Component {
     render()    {
         let {nodes} = this.state;
         return (
-            <React.Fragment>
+            <div className="pathfinder">
                 <Selection onClick={this.handleSelectAlgorithm} />
                 <AlgorithmOptions 
                             onClear={this.clearBoard}
@@ -163,7 +163,7 @@ class Pathfinder extends React.Component {
                         )
                     })}
                 </div>  
-            </React.Fragment>
+            </div>
         )
     }
 }

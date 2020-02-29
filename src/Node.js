@@ -18,6 +18,9 @@ class Node extends React.Component {
         if ( props.path ) extraClass = " path";
         if ( props.isStart ) extraClass = " start";
         if ( props.isEnd ) extraClass = " end";
+
+        if ( props.mostRight ) extraClass += " right";
+        if ( props.lastRow ) extraClass += " down";
         return(
             <div onClick={(event) => this.props.handleClick(event.target.id)} onMouseOver={this.handleClick} id={this.state.y + "-" + this.state.x} className={"node" + extraClass}>{this.props.value.isWeighted ? this.props.value.weight : ""}</div>
         )
