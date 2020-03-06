@@ -18,7 +18,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
+    transition: all 0.2s;
     -webkit-box-shadow: inset -4px -6px 11px -8px rgba(54,54,54,1);
     -moz-box-shadow: inset -4px -6px 11px -8px rgba(54,54,54,1);
     box-shadow: inset -5px -5px 10px -8px rgba(54,54,54,1);

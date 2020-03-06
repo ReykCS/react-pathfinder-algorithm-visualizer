@@ -12,12 +12,15 @@ function bfs(start, maxX, maxY, nodes)  {
         let node = queue.shift();
         let currentIndex = assets.getIndex(node.x, node.y, maxX);
         order.push(currentIndex);
-        if ( nodes[node.x][node.y].isEnd ) break;
+        
         let neighbors = assets.getNeighbors(node.x, node.y, maxX, maxY, nodes);
         for ( let w of neighbors )  {
             let index = assets.getIndex(w.x, w.y, maxX);
             if ( visited[index] ) continue;
             visited[index] = true;
+            if ( nodes[w.x][w.y].isEnd ) {
+                return {parent, order};
+            }
             queue.push(w);
             parent[index] = currentIndex;
         }
