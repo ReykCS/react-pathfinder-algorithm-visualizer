@@ -142,27 +142,30 @@ class Pathfinder extends React.Component {
     render()    {
         let {nodes} = this.state;
         return (
-            <div className="pathfinder">
+            <div className="main-holder">
                 <Selection onClick={this.handleSelectAlgorithm} />
-                <AlgorithmOptions 
-                            onClear={this.clearBoard}
-                            onCreateNew={() => this.resetBoard(0)}
-                            onCreateWeighted={() => this.resetBoard(this.state.maxWeight)}
-                            onStart={this.visualizeDijkstra} />
-                <div onMouseLeave={() => this.handleMousePressed(false)} onMouseDown={() => this.handleMousePressed(true)} onMouseUp={() => this.handleMousePressed(false)} className="grid-holder">
-                    {nodes.map((row, indY) => {
-                        return (
-                            <div className="row" key={indY}>
-                                {row.map((val, indX) => {
-                                    return <Node 
-                                        handleClick={this.handleSetNodeWallClicked} handleDrag={this.handleSetNodeWallDragged} 
-                                        value={val} 
-                                        key={indX}></Node>
-                                })}
-                            </div>
-                        )
-                    })}
-                </div>  
+                <div className="pathfinder">
+                    
+                    <AlgorithmOptions 
+                                onClear={this.clearBoard}
+                                onCreateNew={() => this.resetBoard(0)}
+                                onCreateWeighted={() => this.resetBoard(this.state.maxWeight)}
+                                onStart={this.visualizeDijkstra} />
+                    <div onMouseLeave={() => this.handleMousePressed(false)} onMouseDown={() => this.handleMousePressed(true)} onMouseUp={() => this.handleMousePressed(false)} className="grid-holder">
+                        {nodes.map((row, indY) => {
+                            return (
+                                <div className="row" key={indY}>
+                                    {row.map((val, indX) => {
+                                        return <Node 
+                                            handleClick={this.handleSetNodeWallClicked} handleDrag={this.handleSetNodeWallDragged} 
+                                            value={val} 
+                                            key={indX}></Node>
+                                    })}
+                                </div>
+                            )
+                        })}
+                    </div>  
+                </div>
             </div>
         )
     }
